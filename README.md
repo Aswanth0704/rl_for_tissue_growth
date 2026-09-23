@@ -28,6 +28,27 @@ scripts/run_example1.py, scripts/run_example2.py
 tests/test_mechanics.py        checks against numbers quoted in the paper
 ```
 
+## Results at a glance
+
+The figure below is the Example 1 output (hypertensive growth of the murine infrarenal abdominal
+aorta over 28 days) from `scripts/run_example1.py --methods dp dqn th`, with the DQN trained for
+the paper's 30 000 episodes.
+
+![Example 1: hypertensive growth of the murine IAA](results/example1/example1_hypertension.png)
+
+The panels correspond to three figures of the paper, so they can be compared directly with the
+[version of record](https://www.sciencedirect.com/science/article/pii/S002250962200223X):
+
+| Panels here | Paper |
+|---|---|
+| (a) pressure, (b) unloaded thickness, (c) inner radius, (d) in vivo axial stretch | Fig. 6 (a)-(d) |
+| (e) radial, (f) circumferential, (g) axial growth stretch | Fig. 7 (a)-(c) |
+| (h) circumferential stress, (i) axial stress, (j) wall shear stress | Fig. 8 (a)-(c) |
+
+Two things differ from the paper's plots. The paper also draws the constrained-mixture curve of
+Latorre et al. (2019), which is not re-implemented here, and its Fig. 6 shows experimental error
+bars where this figure shows only the digitised mean points.
+
 ## Running
 
 Developed with Python 3.12. Install the dependencies into whatever environment you like:
@@ -124,7 +145,8 @@ human aorta. These reproduce the paper's tau_w,h = 26.8 and 1.6035 dyn/cm^2.
 * Taber & Humphrey law, Example 1: lam_g(28 d) = (1.53, 1.20, 1.00) with runaway s_zz
   (paper: lam_g,t = 1.20, s_zz off-scale in Fig. 8b). Example 2: lam_g,r at Loc 1 / Loc 5 of the
   media = 1.29 / 0.68 and lam_g,t = 1.03 / 0.97, identical to Figs. 13-14.
-* Example 1 at day 28 (`results/example1`, DQN trained for the paper's 30 000 episodes, 27 min):
+* Example 1 at day 28 (`results/example1`, DQN trained for the paper's 30 000 episodes, 27 min;
+  see the figure above):
 
   | law | lam_g (r, t, z) | H unloaded (mm) | r_i (mm) | in vivo lam_z | (s_tt, s_zz, tau_w) |
   |---|---|---|---|---|---|
