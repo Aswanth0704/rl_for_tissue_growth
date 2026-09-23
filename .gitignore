@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.mypy_cache/
+.pytest_cache/
+.DS_Store
+*.log
+papers/
+rl_for_tissue_growth.md
